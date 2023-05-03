@@ -17,7 +17,8 @@ pub struct CapabilitySets {
 
 bitflags! {
     /// `CAP_*` constants.
-    #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
+    #[derive(Copy, Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+    #[repr(transparent)]
     pub struct CapabilityFlags: u64 {
         /// `CAP_CHOWN`
         const CHOWN = 1 << linux_raw_sys::general::CAP_CHOWN;

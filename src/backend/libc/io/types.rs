@@ -6,7 +6,8 @@ bitflags! {
     ///
     /// [`fcntl_getfd`]: crate::io::fcntl_getfd
     /// [`fcntl_setfd`]: crate::io::fcntl_setfd
-    #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
+    #[derive(Copy, Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+    #[repr(transparent)]
     pub struct FdFlags: c::c_int {
         /// `FD_CLOEXEC`
         const CLOEXEC = c::FD_CLOEXEC;
@@ -19,7 +20,8 @@ bitflags! {
     ///
     /// [`preadv2`]: crate::io::preadv2
     /// [`pwritev2`]: crate::io::pwritev
-    #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
+    #[derive(Copy, Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+    #[repr(transparent)]
     pub struct ReadWriteFlags: c::c_int {
         /// `RWF_DSYNC` (since Linux 4.7)
         const DSYNC = linux_raw_sys::general::RWF_DSYNC as c::c_int;
@@ -39,7 +41,8 @@ bitflags! {
     /// `O_*` constants for use with [`dup2`].
     ///
     /// [`dup2`]: crate::io::dup2
-    #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
+    #[derive(Copy, Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+    #[repr(transparent)]
     pub struct DupFlags: c::c_int {
         /// `O_CLOEXEC`
         #[cfg(not(any(

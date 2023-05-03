@@ -11,7 +11,8 @@ bitflags::bitflags! {
     ///
     /// These flags correspond to values of [`MembarrierCommand`] which are
     /// supported in the OS.
-    #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
+    #[derive(Copy, Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+    #[repr(transparent)]
     pub struct MembarrierQuery: u32 {
        /// `MEMBARRIER_CMD_GLOBAL` (also known as `MEMBARRIER_CMD_SHARED`)
        #[doc(alias = "SHARED")]
