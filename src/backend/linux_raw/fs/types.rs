@@ -768,6 +768,8 @@ bitflags! {
 }
 
 bitflags! {
+    #[derive(Copy, Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+    #[repr(transparent)]
     pub(crate) struct InternalMountFlags: c::c_uint {
         const REMOUNT = linux_raw_sys::general::MS_REMOUNT;
         const MOVE = linux_raw_sys::general::MS_MOVE;

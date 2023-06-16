@@ -1147,6 +1147,8 @@ bitflags! {
 
 #[cfg(linux_kernel)]
 bitflags! {
+    #[derive(Copy, Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+    #[repr(transparent)]
     pub(crate) struct InternalMountFlags: c::c_ulong {
         const REMOUNT = c::MS_REMOUNT;
         const MOVE = c::MS_MOVE;
